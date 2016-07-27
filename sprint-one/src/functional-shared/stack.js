@@ -5,6 +5,7 @@ var Stack = function() {
   instance.storage = {};
 
   instance.size = stackMethods.size;
+  instance.push = stackMethods.push;
   return instance;
 };
 
@@ -14,7 +15,9 @@ var stackMethods = {
   },
 
   'push': function(val) {
+    this.storage[this.size()] = val;
   }
+
 };
 
 
