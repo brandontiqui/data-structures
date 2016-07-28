@@ -6,8 +6,8 @@ var Queue = function() {
 };
 
 var queueMethods = {
-  'enqueue': function () {
-
+  'enqueue': function (val) {
+    this.storage[this.size()] = val;
   },
   'dequeue': function () {
 
