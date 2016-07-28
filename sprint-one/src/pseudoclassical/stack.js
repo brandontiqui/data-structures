@@ -9,7 +9,9 @@ Stack.prototype.push = function (val) {
 };
 
 Stack.prototype.pop = function () {
-
+  var val = this.storage[this.size() - 1];
+  delete this.storage[this.size() - 1];
+  return val;
 };
 
 Stack.prototype.size = function () {
