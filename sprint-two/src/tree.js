@@ -3,7 +3,8 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];  // fix me
+  $.extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -12,10 +13,29 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   // your code here
-  newTree.children = null;  // fix me
+  var newTree = Tree(value);
+  this.children.push(newTree);
 };
 
 treeMethods.contains = function(target) {
+  if (this.value === target) {
+    return true;
+  } else if (this.children.length === 0) {
+    return false;
+  }
+  // this.children.forEach(function(child) {
+  //   return child.contains(target);
+  // });
+  var isFound = false;
+
+  for (var i = 0; i < this.children.length; i++) {
+    isFound = this.children[i].contains(target);
+    if (isFound) {
+      break;
+    }
+  }
+
+  return isFound;
 };
 
 
