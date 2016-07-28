@@ -22,6 +22,14 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
+    var value = this.head.value;
+
+    //Shift head:
+    this.head = this.head.next;
+    //Delete:
+//    delete this.head;
+
+    return value;
   };
 
   list.contains = function(target) {
