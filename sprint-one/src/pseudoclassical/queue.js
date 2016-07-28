@@ -3,7 +3,7 @@ var Queue = function() {
 };
 
 Queue.prototype.enqueue = function (val) {
-
+  this.storage[this.size()] = val;
 };
 
 Queue.prototype.dequeue = function () {
