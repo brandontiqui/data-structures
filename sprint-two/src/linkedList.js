@@ -26,13 +26,18 @@ var LinkedList = function() {
 
     //Shift head:
     this.head = this.head.next;
-    //Delete:
-//    delete this.head;
 
     return value;
   };
 
   list.contains = function(target) {
+    for (var i = this.head; i !== null; i = i.next) {
+      if (i.value === target) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   return list;
