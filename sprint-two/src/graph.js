@@ -1,15 +1,28 @@
-
+var Vertex = function(val) {
+  this.data = val;
+  this.edges = [];
+};
 
 // Instantiate a new graph
 var Graph = function() {
+  this.storage = [];
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  this.storage.push(new Vertex(node));
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  var isFound = false;
+  this.storage.forEach(function(vertex) {
+    console.log(typeof vertex.data + ':' + typeof node);
+    if (vertex.data === node) {
+      isFound = true;
+    }
+  });
+  return isFound;
 };
 
 // Removes a node from the graph.
