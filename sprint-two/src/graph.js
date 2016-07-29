@@ -28,7 +28,7 @@ Graph.prototype.contains = function(node) {
 Graph.prototype.removeNode = function(node) {
   this.storage.forEach(function (vertex, index, collection) {
     if (vertex.data === node) {
-      collection = collection.splice(index, 1);
+      collection.splice(index, 1);
     }
   });
 };
@@ -61,6 +61,15 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  this.storage.forEach(function (vertex, index, collection) {
+    if ((vertex.data === fromNode) && (vertex.edges.indexOf(toNode) !== -1)) { 
+      var myIndex = vertex.edges.indexOf(toNode);
+      vertex.edges.splice(myIndex, 1);
+    } else if ((vertex.data === toNode) && (vertex.edges.indexOf(fromNode) !== -1)) {
+      var myIndex = vertex.edges.indexOf(toNode);
+      vertex.edges.splice(myIndex, 1);
+    }
+  });
 };
 
 // Pass in a callback which will be executed on each node of the graph.
