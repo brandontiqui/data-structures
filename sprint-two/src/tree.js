@@ -56,7 +56,7 @@ treeMethods.removeFromParent = function(value) {
 
   //Traverse the tree via recursion:
   for (var i = 0; i < this.children.length; i++) {
-    this.children[i].removeFromParent(value);
+    return this.children[i].removeFromParent(value);
   }
 };
 
