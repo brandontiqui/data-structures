@@ -48,7 +48,6 @@ describe('tree', function() {
     tree.children[0].addChild(4);
     tree.children[0].addChild(5);
     var tree2 = tree.removeFromParent(2);
-    console.log(tree2);
     expect(tree.contains(4)).to.equal(false);
     expect(tree2.contains(4)).to.equal(true);
   });
